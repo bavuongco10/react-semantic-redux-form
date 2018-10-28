@@ -1,4 +1,10 @@
 {
-  "plugins": ["transform-react-jsx", "transform-object-rest-spread"],
-  "presets": ["react", "es2015"]
+  "plugins": [
+    "@babel/plugin-transform-react-jsx",
+    "@babel/plugin-proposal-object-rest-spread"
+  ],
+  "presets": [
+    "@babel/preset-react",
+    "@babel/preset-env"
+  ]
 }
