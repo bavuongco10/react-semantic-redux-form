@@ -21,7 +21,8 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "prepublish": "yarn run build",
-    "install:peer": "npm-install-peers"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0-beta.44",
@@ -29,12 +30,18 @@
     "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.44",
     "@babel/preset-env": "7.0.0-beta.44",
     "@babel/preset-react": "7.0.0-beta.44",
-    "npm-install-peers": "^1.2.1"
-  },
-  "peerDependencies": {
+    "@storybook/addon-actions": "^3.4.10",
+    "@storybook/addon-knobs": "^3.4.10",
+    "@storybook/addon-links": "^3.4.10",
+    "@storybook/addons": "^3.4.10",
+    "@storybook/react": "^3.4.10",
+    "babel-core": "^7.0.0-bridge.0",
+    "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-redux": "^5.1.0",
     "redux-form": "^7.4.2",
+    "redux-form-storybook": "^1.0.2",
     "semantic-ui-react": "^0.83.0"
   }
 }
