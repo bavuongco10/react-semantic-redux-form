@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Form,
   Input as InputComponent,
@@ -8,11 +8,11 @@ import {
   TextArea as TextAreaComponent,
   Dropdown as DropdownComponent,
   Label
-} from 'semantic-ui-react';
+} from 'semantic-ui-react'
 
 export const Input = ({ input, required, meta: { touched, error }, ...rest }) => (
   <InputComponent required={required} {...input} {...rest} />
-);
+)
 
 export const TextAreaField = ({
   input,
@@ -27,30 +27,27 @@ export const TextAreaField = ({
     {label && <label>{label}</label>}
     <TextAreaComponent required={required} {...input} {...rest} />
     {touched && error ? (
-      <Label basic color="red" pointing>
-        {error}
-      </Label>
-    ) : null}
-  </Form.Field>
-);
-
-
-export const LabelInputField = ({input, required, width, meta: { touched, error }, ...rest}) => ( //eslint-disable-line
-  <Form.Field error={!!(touched && error)} required={required} width={width}>
-    <InputComponent required={required} {...input} {...rest} />
-    {touched && error ? (
-      <Label basic color="red" pointing>
+      <Label basic color='red' pointing>
         {error}
       </Label>
     ) : null}
   </Form.Field>
 )
 
-
+export const LabelInputField = ({input, required, width, meta: { touched, error }, ...rest}) => ( //eslint-disable-line
+  <Form.Field error={!!(touched && error)} required={required} width={width}>
+    <InputComponent required={required} {...input} {...rest} />
+    {touched && error ? (
+      <Label basic color='red' pointing>
+        {error}
+      </Label>
+    ) : null}
+  </Form.Field>
+)
 
 export const TextArea = ({ input, required, meta: { touched, error }, ...rest }) => (
   <TextAreaComponent required={required} {...input} {...rest} />
-);
+)
 
 export const SelectField = ({
   input,
@@ -73,12 +70,12 @@ export const SelectField = ({
       {...custom}
     />
     {touched && error ? (
-      <Label basic color="red" pointing>
+      <Label basic color='red' pointing>
         {error}
       </Label>
     ) : null}
   </Form.Field>
-);
+)
 
 export const Select = ({
   input,
@@ -95,7 +92,7 @@ export const Select = ({
     onChange={(event, data) => input.onChange(data.value)}
     {...rest}
   />
-);
+)
 
 export const ToggleField = ({ input, label, defaultChecked, width }) => (
   <Form.Field
@@ -107,7 +104,7 @@ export const ToggleField = ({ input, label, defaultChecked, width }) => (
     onClick={(event, data) => input.onChange(data.checked)}
     width={width}
   />
-);
+)
 
 export const Toggle = ({ input, label, defaultChecked }) => (
   <RadioComponent
@@ -117,7 +114,7 @@ export const Toggle = ({ input, label, defaultChecked }) => (
     defaultChecked={defaultChecked}
     onClick={(event, data) => input.onChange(data.checked)}
   />
-);
+)
 
 export const Radio = ({ input, label, meta: { touched, error }, ...custom }) => (
   <RadioComponent
@@ -126,7 +123,7 @@ export const Radio = ({ input, label, meta: { touched, error }, ...custom }) => 
     onClick={(event, data) => input.onChange(data.checked)}
     {...custom}
   />
-);
+)
 
 export const RadioField = ({ input, label, width, meta: { touched, error }, ...custom }) => (
   <Form.Field
@@ -137,7 +134,7 @@ export const RadioField = ({ input, label, width, meta: { touched, error }, ...c
     onClick={(event, data) => input.onChange(data.checked)}
     {...custom}
   />
-);
+)
 
 export const Checkbox = ({ input, label, meta: { touched, error }, ...custom }) => (
   <CheckboxComponent
@@ -146,7 +143,7 @@ export const Checkbox = ({ input, label, meta: { touched, error }, ...custom }) 
     onClick={(event, data) => input.onChange(data.checked)}
     {...custom}
   />
-);
+)
 
 export const CheckboxField = ({
   input,
@@ -163,7 +160,7 @@ export const CheckboxField = ({
     onClick={(event, data) => input.onChange(data.checked)}
     {...custom}
   />
-);
+)
 
 export const RangeField = ({
   input,
@@ -180,14 +177,14 @@ export const RangeField = ({
     <label>
       {label} : {input.value}
     </label>
-    <input type="range" required={required} min={min} max={max} {...input} {...rest} />
+    <input type='range' required={required} min={min} max={max} {...input} {...rest} />
     {touched && error ? (
-      <Label basic color="red" pointing>
+      <Label basic color='red' pointing>
         {error}
       </Label>
     ) : null}
   </Form.Field>
-);
+)
 
 export const Range = ({
   input,
@@ -197,8 +194,8 @@ export const Range = ({
   meta: { touched, error },
   ...rest
 }) => (
-  <input type="range" required={required} min={min} max={max} {...input} {...rest} />
-);
+  <input type='range' required={required} min={min} max={max} {...input} {...rest} />
+)
 
 export const DropdownField = ({
   input,
@@ -221,12 +218,12 @@ export const DropdownField = ({
       {...custom}
     />
     {touched && error ? (
-      <Label basic color="red" pointing>
+      <Label basic color='red' pointing>
         {error}
       </Label>
     ) : null}
   </Form.Field>
-);
+)
 
 export const Dropdown = ({
   input,
@@ -243,7 +240,7 @@ export const Dropdown = ({
     onChange={(event, data) => input.onChange(data.value)}
     {...rest}
   />
-);
+)
 
 export const UploadField = ({
   label,
@@ -254,32 +251,32 @@ export const UploadField = ({
   meta: { touched, error },
   ...rest
 }) => {
-  delete input.value; //Delete value from input
+  delete input.value // Delete value from input
   return (
     <Form.Field error={touched && error} required={required} width={width} inline={inline}>
       {label && <label>{label}</label>}
       <InputComponent
-        type="file"
+        type='file'
         {...input}
         {...rest}
       />
       {touched && error ? (
-        <Label basic color="red" pointing>
+        <Label basic color='red' pointing>
           {error}
         </Label>
       ) : null}
     </Form.Field>
   )
-};
+}
 
 export const Upload = ({ input, required, meta: { touched, error }, ...rest }) => {
-  delete input.value;
-  return(
+  delete input.value
+  return (
     <InputComponent
       required={required}
-      type="file"
+      type='file'
       {...input}
       {...rest}
     />
   )
-};
+}
