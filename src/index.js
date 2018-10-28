@@ -1,6 +1,3 @@
-// @flow
-/* eslint-disable no-unused-vars */
-
 import React from 'react';
 import {
   Form,
@@ -13,51 +10,7 @@ import {
   Label
 } from 'semantic-ui-react';
 
-type InputProps = {
-  checked?: boolean,
-  name: string,
-  onBlur: { (eventOrValue: Event | any): void },
-  onChange: { (eventOrValue: Event | any): void },
-  onDrop: { (event: Event): void },
-  onDragStart: { (event: Event): void },
-  onFocus: { (event: Event): void },
-  value: any
-};
-
-type FieldProps = {
-  input: InputProps,
-  meta: {
-    error?: any,
-    touched: boolean
-  },
-  required?: boolean,
-  width?: string,
-  label?: string,
-  inline?: boolean,
-  defaultChecked?: boolean
-};
-
-export const InputField = ({
-  input,
-  label,
-  required,
-  width,
-  inline,
-  meta: { touched, error },
-  ...rest
-}: FieldProps) => (
-  <Form.Field error={!!(touched && error)} required={required} width={width} inline={inline}>
-    {label && <label>{label}</label>}
-    <InputComponent required={required} {...input} {...rest} />
-    {touched && error ? (
-      <Label basic color="red" pointing>
-        {error}
-      </Label>
-    ) : null}
-  </Form.Field>
-);
-
-export const Input = ({ input, required, meta: { touched, error }, ...rest }: FieldProps) => (
+export const Input = ({ input, required, meta: { touched, error }, ...rest }) => (
   <InputComponent required={required} {...input} {...rest} />
 );
 
@@ -69,7 +22,7 @@ export const TextAreaField = ({
   inline,
   meta: { touched, error },
   ...rest
-}: FieldProps) => (
+}) => (
   <Form.Field error={!!(touched && error)} required={required} width={width} inline={inline}>
     {label && <label>{label}</label>}
     <TextAreaComponent required={required} {...input} {...rest} />
@@ -95,16 +48,9 @@ export const LabelInputField = ({input, required, width, meta: { touched, error 
 
 
 
-export const TextArea = ({ input, required, meta: { touched, error }, ...rest }: FieldProps) => (
+export const TextArea = ({ input, required, meta: { touched, error }, ...rest }) => (
   <TextAreaComponent required={required} {...input} {...rest} />
 );
-
-type OptionsFieldProps = FieldProps & {
-  options: {
-    text: string,
-    value: string
-  }[]
-};
 
 export const SelectField = ({
   input,
@@ -115,7 +61,7 @@ export const SelectField = ({
   options,
   meta: { touched, error },
   ...custom
-}: OptionsFieldProps) => (
+}) => (
   <Form.Field error={!!(touched && error)} required={required} width={width} inline={inline}>
     {label && <label>{label}</label>}
     <SelectComponent
@@ -140,7 +86,7 @@ export const Select = ({
   options,
   meta: { touched, error },
   ...rest
-}: OptionsFieldProps) => (
+}) => (
   <SelectComponent
     search
     value={input.value}
@@ -151,7 +97,7 @@ export const Select = ({
   />
 );
 
-export const ToggleField = ({ input, label, defaultChecked, width }: FieldProps) => (
+export const ToggleField = ({ input, label, defaultChecked, width }) => (
   <Form.Field
     control={RadioComponent}
     toggle
@@ -163,7 +109,7 @@ export const ToggleField = ({ input, label, defaultChecked, width }: FieldProps)
   />
 );
 
-export const Toggle = ({ input, label, defaultChecked }: FieldProps) => (
+export const Toggle = ({ input, label, defaultChecked }) => (
   <RadioComponent
     toggle
     label={label}
@@ -173,7 +119,7 @@ export const Toggle = ({ input, label, defaultChecked }: FieldProps) => (
   />
 );
 
-export const Radio = ({ input, label, meta: { touched, error }, ...custom }: FieldProps) => (
+export const Radio = ({ input, label, meta: { touched, error }, ...custom }) => (
   <RadioComponent
     label={label}
     checked={!!input.value}
@@ -182,7 +128,7 @@ export const Radio = ({ input, label, meta: { touched, error }, ...custom }: Fie
   />
 );
 
-export const RadioField = ({ input, label, width, meta: { touched, error }, ...custom }: FieldProps) => (
+export const RadioField = ({ input, label, width, meta: { touched, error }, ...custom }) => (
   <Form.Field
     control={RadioComponent}
     label={label}
@@ -193,7 +139,7 @@ export const RadioField = ({ input, label, width, meta: { touched, error }, ...c
   />
 );
 
-export const Checkbox = ({ input, label, meta: { touched, error }, ...custom }: FieldProps) => (
+export const Checkbox = ({ input, label, meta: { touched, error }, ...custom }) => (
   <CheckboxComponent
     label={label}
     checked={!!input.value}
@@ -208,7 +154,7 @@ export const CheckboxField = ({
   width,
   meta: { touched, error },
   ...custom
-}: FieldProps) => (
+}) => (
   <Form.Field
     control={CheckboxComponent}
     label={label}
@@ -218,11 +164,6 @@ export const CheckboxField = ({
     {...custom}
   />
 );
-
-type RangeFieldProps = FieldProps & {
-  min: number,
-  max: number
-};
 
 export const RangeField = ({
   input,
@@ -234,7 +175,7 @@ export const RangeField = ({
   required,
   meta: { touched, error },
   ...rest
-}: RangeFieldProps) => (
+}) => (
   <Form.Field error={!!(touched && error)} required={required} width={width} inline={inline}>
     <label>
       {label} : {input.value}
@@ -255,7 +196,7 @@ export const Range = ({
   required,
   meta: { touched, error },
   ...rest
-}: RangeFieldProps) => (
+}) => (
   <input type="range" required={required} min={min} max={max} {...input} {...rest} />
 );
 
@@ -268,7 +209,7 @@ export const DropdownField = ({
   options,
   meta: { touched, error },
   ...custom
-}: OptionsFieldProps) => (
+}) => (
   <Form.Field error={!!(touched && error)} required={required} width={width} inline={inline}>
     {label && <label>{label}</label>}
     <DropdownComponent
@@ -293,7 +234,7 @@ export const Dropdown = ({
   options,
   meta: { touched, error },
   ...rest
-}: OptionsFieldProps) => (
+}) => (
   <DropdownComponent
     search
     value={input.value}
@@ -312,7 +253,7 @@ export const UploadField = ({
   inline,
   meta: { touched, error },
   ...rest
-}: FieldProps) => {
+}) => {
   delete input.value; //Delete value from input
   return (
     <Form.Field error={touched && error} required={required} width={width} inline={inline}>
@@ -331,7 +272,7 @@ export const UploadField = ({
   )
 };
 
-export const Upload = ({ input, required, meta: { touched, error }, ...rest }: FieldProps) => {
+export const Upload = ({ input, required, meta: { touched, error }, ...rest }) => {
   delete input.value;
   return(
     <InputComponent
